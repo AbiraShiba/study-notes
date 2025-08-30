@@ -4,33 +4,26 @@
 <head>
     <meta charset="UTF-8" />
     <title>Study Notes</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            padding: 1rem;
-        }
-
-        #tabs button {
-            margin-right: 0.5rem;
-            padding: 0.5rem 1rem;
-        }
-
-        #tabs button.active {
-            background: #007acc;
-            color: white;
-        }
-
-        ul {
-            margin-top: 1rem;
-        }
-    </style>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <h1>勉強ノート (PDF)</h1>
-    <div id="tabs"></div>
-    <input id="filter" placeholder="タグで検索 (math, physics...)" />
-    <ul id="notes"></ul>
+<body class="bg-gray-50 font-sans">
+    <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-4">📚 椎葉あびらの勉強ノート</h1>
+
+        <!-- 検索欄 -->
+        <div class="flex gap-2 mb-6">
+            <input id="filter" placeholder="タグで検索..." class="flex-1 px-3 py-2 border rounded shadow-sm" />
+        </div>
+
+        <!-- カテゴリタブ -->
+        <div id="tabs" class="flex gap-2 mb-6"></div>
+
+        <!-- ノート一覧（カード形式） -->
+        <div id="notes" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+    </div>
+
     <script type="module" src="./index.js"></script>
 </body>
 
