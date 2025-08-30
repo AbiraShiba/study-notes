@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Study Notes</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 1rem;
+        }
+
+        #tabs button {
+            margin-right: 0.5rem;
+            padding: 0.5rem 1rem;
+        }
+
+        #tabs button.active {
+            background: #007acc;
+            color: white;
+        }
+
+        ul {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>勉強ノート (PDF)</h1>
+    <div id="tabs"></div>
+    <input id="filter" placeholder="タグで検索 (math, physics...)" />
+    <ul id="notes"></ul>
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>

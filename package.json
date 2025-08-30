@@ -1,0 +1,23 @@
+{
+  "name": "study-notes",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc && cp src/notes.json public/"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbiraShiba/study-notes.git"
+  },
+  "keywords": [],
+  "author": "abira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AbiraShiba/study-notes/issues"
+  },
+  "homepage": "https://github.com/AbiraShiba/study-notes#readme",
+  "description": "Study notes site with PDF"
+}
