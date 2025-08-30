@@ -14,31 +14,41 @@ function loadNotes() {
         const notes = yield res.json();
         const categories = Array.from(new Set(notes.map(n => n.category)));
         const tabsEl = document.getElementById("tabs");
-        const listEl = document.getElementById("notes");
+        const notesEl = document.getElementById("notes");
         const filterEl = document.getElementById("filter");
         let activeCategory = null;
-        // タブを生成
+        // カテゴリタブ
         categories.forEach(cat => {
             const btn = document.createElement("button");
             btn.textContent = cat;
+            btn.className =
+                "px-3 py-1 border rounded hover:bg-blue-100";
             btn.addEventListener("click", () => {
-                activeCategory = cat;
+                activeCategory = cat === activeCategory ? null : cat;
                 render();
             });
             tabsEl.appendChild(btn);
         });
+        // 表示更新
         function render() {
-            listEl.innerHTML = "";
+            notesEl.innerHTML = "";
+            const filter = filterEl.value.toLowerCase();
             notes
-                .filter(n => (!activeCategory || n.category === activeCategory))
-                .filter(n => {
-                const f = filterEl.value.toLowerCase();
-                return !f || n.tags.some(t => t.toLowerCase().includes(f));
-            })
+                .filter(n => !activeCategory || n.category === activeCategory)
+                .filter(n => !filter || n.tags.some(t => t.toLowerCase().includes(filter)))
                 .forEach(n => {
-                const li = document.createElement("li");
-                li.innerHTML = `<a href="${n.file}" target="_blank">${n.title}</a> [${n.tags.join(", ")}]`;
-                listEl.appendChild(li);
+                const card = document.createElement("div");
+                card.className =
+                    "bg-white p-4 rounded-lg shadow hover:shadow-md transition";
+                card.innerHTML = `
+          <h2 class="text-lg font-semibold mb-2">${n.title}</h2>
+          <p class="text-sm text-gray-600 mb-2">Tags: ${n.tags.join(", ")}</p>
+          <a href="${n.file}" target="_blank"
+             class="inline-block px-3 py-1 text-white bg-blue-600 rounded hover:bg-blue-700">
+             PDF を開く
+          </a>
+        `;
+                notesEl.appendChild(card);
             });
         }
         filterEl.addEventListener("input", render);
