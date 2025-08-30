@@ -1,17 +1,7 @@
 
-椎葉あびらの勉強ノート置き場
----
+# 椎葉あびらの勉強ノート置き場
 
-### 紹介
-
-勉強したPDFをここに置いておきます。
-
----
----
-
-# （サイト作成用）生成手順
-
-TypeScript + GitHub Pages で構築した **勉強ノート公開サイト** です。
+GitHub Pages で構築した **勉強ノート公開サイト** です。
 
 👉 公開サイト: [https://abirashiba.github.io/study-notes/](https://abirashiba.github.io/study-notes/)
 
